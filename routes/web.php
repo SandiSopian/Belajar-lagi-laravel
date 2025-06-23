@@ -19,8 +19,8 @@ Route::get('/posts', function () {
     return view('posts', ['title' => 'Blog Posts', 'posts' => Post::all()]);
 })->name('blog');
 
-Route::get('/posts/{slug}', function ($slug) {
-    $post = Post::find($slug);
+Route::get('/posts/{post:slug}', function (Post $post) {
+    // $post = Post::find($slug);
 
     return view('post', [
         'title' => $post['title'] ?? 'Post Not Found',

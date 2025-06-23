@@ -1,0 +1,10 @@
+[90m= [39m[34;4mApp\Models\Post[39;24m {#5278
+    [34mtitle[39m: "[32mTips Menjaga Kesehatan Mata di Era Digital[39m",
+    [34mauthor[39m: "[32mDr. Sarah Wijaya[39m",
+    [34mslug[39m: "[32mtips-kesehatan-mata-era-digital[39m",
+    [34mbody[39m: "[32mDi era digital, mata kita sering terpapar layar gadget. Untuk menjaga kesehatan mata, ikuti tips berikut: gunakan metode 20-20-20 (setiap 20 menit, lihat objek sejauh 20 kaki selama 20 detik), atur pencahayaan layar, dan konsumsi makanan kaya vitamin A. Jangan lupa rutin periksa ke dokter mata![39m",
+    [34mupdated_at[39m: "[32m2025-06-23 03:57:53[39m",
+    [34mcreated_at[39m: "[32m2025-06-23 03:57:53[39m",
+    [34mid[39m: [35m4[39m,
+  }
+
