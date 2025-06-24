@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('home', ['title' => 'Welcome to Our Website']);
@@ -25,5 +26,14 @@ Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', [
         'title' => $post['title'] ?? 'Post Not Found',
         'post' => $post
+    ]);
+})->name('post');
+
+Route::get('/authors/{user}', function (User $user) {
+    // $post = Post::find($slug);
+
+    return view('posts', [
+        'title' => 'Articles by ' . $user->name,
+        'posts' => $user->posts
     ]);
 })->name('post');

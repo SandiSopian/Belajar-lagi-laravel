@@ -6,7 +6,8 @@
             <a href="/posts/{{ $post['slug'] }}" class="hover:underline">
                 <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-600">{{ $post['title'] }}</h2>
             </a>
-            <p class="text-gray-600">{{ $post['author'] }} | {{ $post->created_at }}</p>
+            <a href="/authors/{{ $post->author->id }}" class="hover:underline">{{ $post->author->name }}</a>
+            <p class="text-gray-600">{{ $post->created_at }}</p>
             <p>{{ Str::limit($post['body'],100) }}</p>
             <a href="/posts/{{ $post['slug'] }}" class="font-medium text-blue-400">read more &raquo;</a>
             @endforeach
