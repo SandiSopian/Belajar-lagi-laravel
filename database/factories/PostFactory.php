@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -20,6 +21,7 @@ class PostFactory extends Factory
         return [
             "title" => fake()->sentence(),
             "author_id" => User::factory(),
+            "category_id" => Category::factory(),
             "slug" => fake()->slug(),
             "body" => fake()->paragraph(),
         ];

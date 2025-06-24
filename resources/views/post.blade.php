@@ -5,6 +5,11 @@
             <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-600">{{ $post['title'] }}</h2>
             <p class="text-gray-600">{{ $post->author->name }} | {{ $post->created_at->diffForHumans() }}</p>
             <p>{{$post['body']}}</p>
+            <p class="text-gray-600">Category:
+                <a href="/categories/{{ $post->category->slug }}" class="hover:underline text-gray-600">
+                    {{ $post->category->name }}
+                </a>
+            </p>
             <a href="/posts" class="font-medium text-blue-400"> &laquo; Back to posts</a>
         </article>
     </div>
