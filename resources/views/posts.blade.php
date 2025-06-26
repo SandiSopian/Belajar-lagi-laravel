@@ -1,12 +1,15 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="container mx-auto px-4 py-8">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-0">
+
+    <x-search></x-search>
+
+    <div class="container mx-auto px-4">
+        <div class="px-4 mx-auto max-w-screen-xl lg:px-0">
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                @foreach ($posts as $post)
+                @forelse ($posts as $post)
                 <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
-                        <a href="/categories/{{ $post->category->slug }}">
+                        <a href="/posts?category={{ $post->category->slug }}">
                             <span class="bg-{{ $post->category->color }}-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                                 {{ $post->category->name }}
                             </span>
@@ -24,7 +27,7 @@
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-4">
                             <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
-                            <a href="/authors/{{ $post->author->username }}" class="text-sm font-medium text-gray-900 dark:text-white">
+                            <a href="/posts?author={{ $post->author->username }}" class="text-sm font-medium text-gray-900 dark:text-white">
                                 <span class="font-medium text-sm dark:text-white">
                                     {{ $post->author->name }}
                                 </span>
@@ -37,8 +40,19 @@
                             </svg>
                         </a>
                     </div>
+
                 </article>
-                @endforeach
+
+                @empty
+
+                <div class="col-span-3 text-center">
+                    <p class="text-center text-gray-500 mb-10">No posts found.</p>
+                    <a href="/posts" class="text-blue-500 font-semibold">&laquo; Back to posts</a>
+
+                </div>
+
+                @endforelse
+
             </div>
         </div>
 

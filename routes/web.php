@@ -19,14 +19,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/posts', function () {
-    // with itu digunakan untuk eager loading relasi
-    // jadi ketika kita mengambil data post, kita juga mengambil data category dan authornya
-    // ini mengurangi jumlah query yang dilakukan ke database
-    // jika tidak menggunakan with, maka akan ada query tambahan untuk mengambil data category dan author
-    // ini bisa menyebabkan N+1 problem jika ada banyak post
-    $posts = Post::latest()->get();
-
-    return view('posts', ['title' => 'Blog Posts', 'posts' => $posts]);
+    return view('posts', ['title' => 'Blog Posts', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()]);
 })->name('blog');
 
 Route::get('/posts/{post:slug}', function (Post $post) {
