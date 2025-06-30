@@ -19,7 +19,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/posts', function () {
-    return view('posts', ['title' => 'Blog Posts', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->get()]);
+    return view('posts', ['title' => 'Blog Posts', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(12)->withQueryString()]);
 })->name('blog');
 
 Route::get('/posts/{post:slug}', function (Post $post) {

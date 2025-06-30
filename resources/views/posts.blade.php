@@ -2,6 +2,10 @@
     <x-slot:title>{{ $title }}</x-slot:title>
 
     <x-search></x-search>
+    <div class="container mx-auto px-4 mb-6">
+        {{ $posts->links() }}
+    </div>
+
 
     <div class="container mx-auto px-4">
         <div class="px-4 mx-auto max-w-screen-xl lg:px-0">
@@ -57,5 +61,9 @@
         </div>
 
     </div>
+    <div class="container mx-auto px-4 my-6">
+        {{ $posts->links() }}
+    </div>
+
 
 </x-layout>
